@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom';
+import { UPLOADS_URL } from '../config';
 import styles from '../styles/PostCard.module.css';
 
 const PostCard = ({ post }) => {
+  const imageUrl = post.image ? `${UPLOADS_URL}/${post.image}` : null;
+
   return (
     <div className={styles.card}>
-      {post.image && (
+      {imageUrl && (
         <img
-          src={`http://localhost:5000/uploads/${post.image}`}
+          src={imageUrl}
           alt={post.title}
           className={styles.cardImage}
+          onError={(e) => {
+            e.target.style.display = 'none';
+          }}
         />
       )}
       <div className={styles.cardContent}>

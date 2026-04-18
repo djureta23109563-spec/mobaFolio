@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
+import { UPLOADS_URL } from '../config';
 import styles from '../styles/ProfilePage.module.css';
 
 const ProfilePage = () => {
@@ -63,14 +64,21 @@ const ProfilePage = () => {
   };
 
   const profilePicUrl = user?.profilePic
-    ? `http://localhost:5000/uploads/${user.profilePic}`
+    ? `${UPLOADS_URL}/${user.profilePic}`
     : '/default-avatar.png';
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileCard}>
         <div className={styles.profileHeader}>
-          <img src={profilePicUrl} alt={user?.name} className={styles.profilePic} />
+          <img 
+            src={profilePicUrl} 
+            alt={user?.name} 
+            className={styles.profilePic}
+            onError={(e) => {
+              e.target.src = '/default-avatar.png';
+            }}
+          />
           <h2>{user?.name}</h2>
           <p className={styles.userRole}>{user?.role === 'admin' ? '👑 Admin' : '🎮 Member'}</p>
           <p className={styles.userRank}>🏆 {user?.rank || 'Warrior'}</p>

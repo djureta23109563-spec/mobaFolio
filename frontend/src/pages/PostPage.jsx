@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
+import { UPLOADS_URL } from '../config';
 import styles from '../styles/PostPage.module.css';
 
 const PostPage = () => {
@@ -57,15 +58,22 @@ const PostPage = () => {
   if (!post) return <div className={styles.notFound}>Post not found</div>;
 
   const canEdit = user && (user._id === post.author?._id || user.role === 'admin');
+  const postImageUrl = post.image ? `${UPLOADS_URL}/${post.image}` : null;
+  const authorAvatarUrl = post.author?.profilePic 
+    ? `${UPLOADS_URL}/${post.author.profilePic}` 
+    : '/default-avatar.png';
 
   return (
     <div className={styles.postContainer}>
       <div className={styles.postCard}>
-        {post.image && (
+        {postImageUrl && (
           <img
-            src={`http://localhost:5000/uploads/${post.image}`}
+            src={postImageUrl}
             alt={post.title}
             className={styles.postImage}
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
           />
         )}
         
@@ -79,9 +87,12 @@ const PostPage = () => {
           
           <div className={styles.authorInfo}>
             <img 
-              src={post.author?.profilePic ? `http://localhost:5000/uploads/${post.author.profilePic}` : '/default-avatar.png'} 
+              src={authorAvatarUrl}
               alt={post.author?.name}
               className={styles.authorAvatar}
+              onError={(e) => {
+                e.target.src = '/default-avatar.png';
+              }}
             />
             <div>
               <p className={styles.authorName}>{post.author?.name}</p>
@@ -130,29 +141,37 @@ const PostPage = () => {
         )}
         
         <div className={styles.commentsList}>
-          {comments.map((comment) => (
-            <div key={comment._id} className={styles.comment}>
-              <div className={styles.commentHeader}>
-                <div className={styles.commentAuthor}>
-                  <img 
-                    src={comment.author?.profilePic ? `http://localhost:5000/uploads/${comment.author.profilePic}` : '/default-avatar.png'} 
-                    alt={comment.author?.name}
-                    className={styles.commentAvatar}
-                  />
-                  <div>
-                    <strong>{comment.author?.name}</strong>
-                    <p className={styles.commentDate}>{new Date(comment.createdAt).toLocaleDateString()}</p>
+          {comments.map((comment) => {
+            const commentAvatarUrl = comment.author?.profilePic 
+              ? `${UPLOADS_URL}/${comment.author.profilePic}` 
+              : '/default-avatar.png';
+            return (
+              <div key={comment._id} className={styles.comment}>
+                <div className={styles.commentHeader}>
+                  <div className={styles.commentAuthor}>
+                    <img 
+                      src={commentAvatarUrl}
+                      alt={comment.author?.name}
+                      className={styles.commentAvatar}
+                      onError={(e) => {
+                        e.target.src = '/default-avatar.png';
+                      }}
+                    />
+                    <div>
+                      <strong>{comment.author?.name}</strong>
+                      <p className={styles.commentDate}>{new Date(comment.createdAt).toLocaleDateString()}</p>
+                    </div>
                   </div>
+                  {(user?._id === comment.author?._id || user?.role === 'admin') && (
+                    <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteCommentBtn}>
+                      Delete
+                    </button>
+                  )}
                 </div>
-                {(user?._id === comment.author?._id || user?.role === 'admin') && (
-                  <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteCommentBtn}>
-                    Delete
-                  </button>
-                )}
+                <p className={styles.commentBody}>{comment.body}</p>
               </div>
-              <p className={styles.commentBody}>{comment.body}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
