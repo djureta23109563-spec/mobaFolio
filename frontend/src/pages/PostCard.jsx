@@ -4,6 +4,8 @@ import styles from '../styles/PostCard.module.css';
 
 const PostCard = ({ post }) => {
   const imageUrl = post.image ? `${UPLOADS_URL}/${post.image}` : null;
+  
+  console.log('PostCard image URL:', imageUrl); // Debug log
 
   return (
     <div className={styles.card}>
@@ -12,8 +14,13 @@ const PostCard = ({ post }) => {
           src={imageUrl}
           alt={post.title}
           className={styles.cardImage}
+          loading="lazy"
           onError={(e) => {
+            console.error('Image failed to load:', imageUrl);
             e.target.style.display = 'none';
+          }}
+          onLoad={() => {
+            console.log('Image loaded successfully:', imageUrl);
           }}
         />
       )}

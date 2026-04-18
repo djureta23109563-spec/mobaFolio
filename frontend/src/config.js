@@ -1,4 +1,4 @@
-// config.js - Centralized configuration for API and image URLs
+// config.js
 const isProduction = process.env.NODE_ENV === 'production';
 
 export const API_URL = isProduction
@@ -8,3 +8,5 @@ export const API_URL = isProduction
 export const UPLOADS_URL = isProduction
   ? 'https://mobafolio-backend.onrender.com/uploads'
   : 'http://localhost:5000/uploads';
+
+console.log('🔧 Config loaded:', { isProduction, API_URL, UPLOADS_URL });
