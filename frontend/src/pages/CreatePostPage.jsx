@@ -13,7 +13,7 @@ const CreatePostPage = () => {
   const [image, setImage] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
+  // Remove 'user' from here - it's not needed anymore
   const navigate = useNavigate();
 
   const heroes = ['Lancelot', 'Gusion', 'Ling', 'Hayabusa', 'Fanny', 'Lunox', 'Kagura', 'Selena', 'Granger', 'Claude', 'Other'];
@@ -109,18 +109,17 @@ const CreatePostPage = () => {
             />
           </div>
 
-          {user?.role === 'admin' && (
-            <div className={styles.formGroup}>
-              <label>Cover Image (Admin only)</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImage(e.target.files[0])}
-                className={styles.fileInput}
-              />
-              <small className={styles.hint}>Upload a screenshot of your achievement!</small>
-            </div>
-          )}
+          {/* Image upload for ALL logged-in users */}
+          <div className={styles.formGroup}>
+            <label>Cover Image (Optional)</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+              className={styles.fileInput}
+            />
+            <small className={styles.hint}>Upload a screenshot of your achievement! (Max 5MB)</small>
+          </div>
 
           <button type="submit" disabled={loading} className={styles.submitBtn}>
             {loading ? 'Publishing...' : 'Publish Achievement 🚀'}

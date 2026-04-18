@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+// Remove useAuth since user is not needed (image upload now for all users)
 import API from '../api/axios';
 import styles from '../styles/EditPostPage.module.css';
 
 const EditPostPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [heroName, setHeroName] = useState('');
@@ -132,17 +131,17 @@ const EditPostPage = () => {
             />
           </div>
 
-          {user?.role === 'admin' && (
-            <div className={styles.formGroup}>
-              <label>Change Cover Image (Admin only)</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImage(e.target.files[0])}
-                className={styles.fileInput}
-              />
-            </div>
-          )}
+          {/* Image upload for ALL logged-in users */}
+          <div className={styles.formGroup}>
+            <label>Change Cover Image (Optional)</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+              className={styles.fileInput}
+            />
+            <small className={styles.hint}>Upload a new screenshot (Max 5MB)</small>
+          </div>
 
           <button type="submit" disabled={loading} className={styles.submitBtn}>
             {loading ? 'Updating...' : 'Update Post 🔄'}

@@ -1,11 +1,9 @@
-// seedAdmin.js - Run this locally to create admin on MongoDB Atlas
 require('dotenv').config();
 const mongoose = require('mongoose');
 const User = require('./models/User');
 
-// IMPORTANT: Replace this with your actual Atlas connection string if not using .env
-// Or set MONGO_URI in your local .env file to the Atlas string.
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://jroropilla23114013_db_user:Te3xerxXgF8eCvuW@cluster0.vc2a2mu.mongodb.net/mobafolio';
+// Your Atlas connection string with the NEW password
+const MONGO_URI = 'mongodb+srv://jroropilla23114013_db_user:odQiy9jHDFxzkLyM@cluster0.vc2a2mu.mongodb.net/mobafolio';
 
 async function seedAdmin() {
   try {
@@ -15,7 +13,7 @@ async function seedAdmin() {
 
     const exists = await User.findOne({ email: 'admin@mobafolio.com' });
     if (exists) {
-      console.log('✅ Admin account already exists.');
+      console.log('✅ Admin already exists');
       process.exit(0);
     }
 
@@ -32,7 +30,6 @@ async function seedAdmin() {
     console.log('🎉 Admin account created successfully!');
     console.log('📧 Email: admin@mobafolio.com');
     console.log('🔑 Password: Admin@1234');
-    console.log('🎮 Welcome to MobaFolio!');
     process.exit(0);
   } catch (err) {
     console.error('❌ Error:', err.message);
