@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import API from '../api/axios';
+import { UPLOADS_URL } from '../config';
 import styles from '../styles/AdminPage.module.css';
 
 const AdminPage = () => {
@@ -80,9 +81,12 @@ const AdminPage = () => {
                     <td>
                       <div className={styles.userCell}>
                         <img 
-                          src={user.profilePic ? `http://localhost:5000/uploads/${user.profilePic}` : '/default-avatar.png'} 
+                          src={user.profilePic ? `${UPLOADS_URL}/${user.profilePic}` : '/default-avatar.png'} 
                           alt={user.name}
                           className={styles.userAvatar}
+                          onError={(e) => {
+                            e.target.src = '/default-avatar.png';
+                          }}
                         />
                         <span>{user.name}</span>
                       </div>
