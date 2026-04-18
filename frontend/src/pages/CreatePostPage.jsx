@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+// Removed: import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
 import styles from '../styles/CreatePostPage.module.css';
 
@@ -13,7 +13,6 @@ const CreatePostPage = () => {
   const [image, setImage] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  // Remove 'user' from here - it's not needed anymore
   const navigate = useNavigate();
 
   const heroes = ['Lancelot', 'Gusion', 'Ling', 'Hayabusa', 'Fanny', 'Lunox', 'Kagura', 'Selena', 'Granger', 'Claude', 'Other'];
