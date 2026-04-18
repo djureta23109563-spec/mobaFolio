@@ -28,7 +28,8 @@ const allowedOrigins = [
   'http://localhost:3002',
   'https://mobafolio-backend.onrender.com',
   'https://mobafolio-frontend.onrender.com',
-  'https://moba-folio.vercel.app',           // <-- ADDED YOUR VERCEL FRONTEND URL
+  'https://moba-folio.vercel.app',
+  'https://moba-folio-joku0i433-angeloromaraog.vercel.app', // Added preview URL
   process.env.CORS_ORIGIN
 ].filter(Boolean);
 
