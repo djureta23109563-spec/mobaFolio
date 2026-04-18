@@ -21,13 +21,14 @@ if (!fs.existsSync('uploads')) {
   fs.mkdirSync('uploads', { recursive: true });
 }
 
-// CORS configuration - Allow multiple origins including Render
+// CORS configuration - Allow multiple origins including Render and Vercel
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001', 
   'http://localhost:3002',
   'https://mobafolio-backend.onrender.com',
   'https://mobafolio-frontend.onrender.com',
+  'https://moba-folio.vercel.app',           // <-- ADDED YOUR VERCEL FRONTEND URL
   process.env.CORS_ORIGIN
 ].filter(Boolean);
 
