@@ -1,0 +1,183 @@
+.profileContainer {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.profileCard {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  animation: slideUp 0.5s ease;
+}
+
+.profileHeader {
+  background: var(--hero-bg);
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.profilePic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #e94560;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profileHeader h2 {
+  margin-bottom: 0.5rem;
+}
+
+.userRole {
+  color: #e94560;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.userRank {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.tab:hover {
+  background: var(--bg-secondary);
+}
+
+.activeTab {
+  color: #e94560;
+  border-bottom: 3px solid #e94560;
+}
+
+.profileForm, .passwordForm {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.input, .textarea, .select {
+  padding: 0.8rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.input:focus, .textarea:focus, .select:focus {
+  outline: none;
+  border-color: #e94560;
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.fileInput {
+  padding: 0.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.saveBtn {
+  background: var(--button-primary);
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.saveBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+.successMsg {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.8rem;
+  margin: 1rem 2rem 0;
+  border-radius: 10px;
+  text-align: center;
+  border-left: 4px solid #28a745;
+}
+
+.errorMsg {
+  background: #fee;
+  color: #e94560;
+  padding: 0.8rem;
+  margin: 1rem 2rem 0;
+  border-radius: 10px;
+  text-align: center;
+  border-left: 4px solid #e94560;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 1rem;
+  }
+  
+  .profileCard {
+    margin: 0;
+  }
+  
+  .profileForm, .passwordForm {
+    padding: 1.5rem;
+  }
+}

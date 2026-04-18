@@ -1,0 +1,171 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.loginCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease;
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gameIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.loginHeader h2 {
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+}
+
+.loginHeader p {
+  color: #666;
+}
+
+.errorMsg {
+  background: #fee;
+  color: #e94560;
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-left: 4px solid #e94560;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.inputGroup {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.loginBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loginBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.loginBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.registerLink {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.registerLink a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.registerLink a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .loginCard {
+    padding: 1.5rem;
+  }
+  
+  .gameIcon {
+    font-size: 3rem;
+  }
+  
+  .loginHeader h2 {
+    font-size: 1.5rem;
+  }
+}
+/* Dark Mode Styles */
+body.dark-mode .loginContainer,
+body.dark-mode .registerContainer {
+  background: var(--bg-primary);
+}
+
+body.dark-mode .loginCard,
+body.dark-mode .registerCard {
+  background: var(--card-bg);
+}
+
+body.dark-mode .loginHeader h2,
+body.dark-mode .registerHeader h2 {
+  color: var(--text-primary);
+}
+
+body.dark-mode .loginHeader p,
+body.dark-mode .registerHeader p {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .input {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .registerLink,
+body.dark-mode .loginLink {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .registerLink a,
+body.dark-mode .loginLink a {
+  color: #e94560;
+}

@@ -1,0 +1,579 @@
+.aboutContainer {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.heroSection {
+  background: var(--hero-bg);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profileBadge {
+  display: inline-block;
+  background: rgba(233, 69, 96, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.profileIcon {
+  margin-right: 0.5rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.6s ease;
+  color: #fff !important;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s ease;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.welcomeBadge {
+  display: inline-block;
+  background: linear-gradient(135deg, #e94560, #ff6b81);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+/* Quote Section */
+.quoteSection {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.quoteCard {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  border-left: 5px solid #e94560;
+  border-right: 5px solid #e94560;
+}
+
+.quoteText {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.quoteAuthor {
+  color: #e94560;
+  font-weight: 600;
+}
+
+/* Section Title */
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin: 3rem 0 2rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #e94560, #ff6b81);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* Stats Section */
+.statsSection {
+  background: var(--stat-bg);
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.statsSection .sectionTitle {
+  color: #fff;
+}
+
+.statsSection .sectionTitle::after {
+  background: linear-gradient(135deg, #e94560, #ff6b81);
+}
+
+.statsGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e94560;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Tournament Section */
+.tournamentSection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tournamentCard {
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.tournamentCard:hover {
+  transform: translateY(-5px);
+}
+
+.tournamentImageWrapper {
+  position: relative;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.tournamentImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tournamentRank {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #e94560, #ff6b81);
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.tournamentContent {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.tournamentContent h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.tournamentMeta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.tournamentDate {
+  color: var(--text-secondary);
+}
+
+.tournamentMedal {
+  color: #e94560;
+  font-weight: 600;
+}
+
+.tournamentLocation {
+  color: #4a90e2;
+  font-size: 0.8rem;
+}
+
+.tournamentContent p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.tournamentAward {
+  background: rgba(233, 69, 96, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #ff6b81;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Heroes Section */
+.heroesSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+.heroesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.heroCard {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.heroCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.heroImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #e94560;
+}
+
+.heroCard h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.heroRole {
+  color: #e94560;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Timeline Section */
+.timelineSection {
+  background: var(--timeline-bg);
+  padding: 3rem 2rem;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(135deg, #e94560, #ff6b81);
+}
+
+.timelineItem {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timelineIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e94560, #ff6b81);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.timelineContent {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+}
+
+.timelineYear {
+  font-weight: bold;
+  color: #e94560;
+  margin-bottom: 0.3rem;
+}
+
+.timelineContent p {
+  color: var(--text-secondary);
+}
+
+/* Tips Section */
+.tipsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tipCard {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.tipCard:hover {
+  transform: translateY(-5px);
+}
+
+.tipIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tipCard h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.tipCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: var(--button-primary);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ctaContent p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtnPrimary, .ctaBtnSecondary {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.ctaBtnPrimary {
+  background: #fff;
+  color: #667eea;
+}
+
+.ctaBtnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ctaBtnSecondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.ctaBtnSecondary:hover {
+  background: #fff;
+  color: #667eea;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .tournamentCard {
+    flex-direction: column;
+  }
+  
+  .tournamentImageWrapper {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .statValue {
+    font-size: 1.5rem;
+  }
+  
+  .heroesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .timeline {
+    padding-left: 1rem;
+  }
+  
+  .timelineItem {
+    gap: 1rem;
+  }
+  
+  .timelineIcon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .timelineContent {
+    padding: 0.8rem 1rem;
+  }
+  
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaContent h2 {
+    font-size: 1.5rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+  }
+  
+  .ctaBtnPrimary, .ctaBtnSecondary {
+    text-align: center;
+  }
+}

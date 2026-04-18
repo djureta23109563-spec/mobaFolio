@@ -1,0 +1,218 @@
+.adminContainer {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.adminCard {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  animation: slideUp 0.5s ease;
+}
+
+.header {
+  background: var(--hero-bg);
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  opacity: 0.9;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.tab:hover {
+  background: var(--bg-secondary);
+}
+
+.activeTab {
+  color: #e94560;
+  border-bottom: 3px solid #e94560;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.table td {
+  padding: 1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.postTitle {
+  font-weight: 500;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.statusBadge.active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.statusBadge.inactive {
+  background: #fee;
+  color: #e94560;
+}
+
+.statusBadge.published {
+  background: #d4edda;
+  color: #155724;
+}
+
+.statusBadge.removed {
+  background: #fee;
+  color: #e94560;
+}
+
+.activateBtn, .deactivateBtn, .removeBtn {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.activateBtn {
+  background: #28a745;
+  color: #fff;
+}
+
+.activateBtn:hover {
+  background: #218838;
+}
+
+.deactivateBtn {
+  background: #ffc107;
+  color: #333;
+}
+
+.deactivateBtn:hover {
+  background: #e0a800;
+}
+
+.removeBtn {
+  background: #e94560;
+  color: #fff;
+}
+
+.removeBtn:hover {
+  background: #c73e54;
+}
+
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-primary);
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid #e94560;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .adminContainer {
+    padding: 1rem;
+  }
+  
+  .table th, .table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .userCell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .userAvatar {
+    width: 30px;
+    height: 30px;
+  }
+}

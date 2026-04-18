@@ -1,0 +1,24 @@
+.app {
+  min-height: 100vh;
+}
+
+/* Global styles that affect the entire app */
+:global(.container) {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+:global(button) {
+  cursor: pointer;
+}
+
+:global(a) {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  :global(.container) {
+    padding: 0 1rem;
+  }
+}
